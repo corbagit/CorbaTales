@@ -1,0 +1,8 @@
+[build]
+root = "site"
+
+[build.command]
+build = "bun install && bun run build"
+
+[deploy]
+startCommand = "bun run start"
