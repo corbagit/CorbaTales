@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+/* ─── CorbaTales Design System ───
+   Brand Guidelines v1.0 — July 2026
+   Designer-approved theme
+*/
+@theme {
+  /* ─── Typography ─── */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Nunito', 'Segoe UI', sans-serif;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ─── Primary Colors ─── */
+  --color-midnight: #1B1B3A;
+  --color-midnight-50: #E8E8F0;
+  --color-midnight-100: #D0D0E0;
+  --color-midnight-200: #A0A0C0;
+  --color-midnight-300: #7070A0;
+  --color-midnight-400: #404080;
+  --color-midnight-500: #2A2A5A;
+  --color-midnight-600: #1B1B3A;
+  --color-midnight-700: #12122A;
+  --color-midnight-800: #0A0A1A;
+  --color-midnight-900: #030312;
+
+  --color-amber: #F5A623;
+  --color-amber-50: #FEF3E6;
+  --color-amber-100: #FDE8CD;
+  --color-amber-200: #FAD19B;
+  --color-amber-300: #F8BA69;
+  --color-amber-400: #F5A623;
+  --color-amber-500: #E09510;
+  --color-amber-600: #B8780D;
+  --color-amber-700: #905B0A;
+  --color-amber-800: #683E07;
+  --color-amber-900: #402104;
+
+  --color-cream: #FFF8F0;
+  --color-cream-50: #FFFDFA;
+  --color-cream-100: #FFF8F0;
+  --color-cream-200: #FFF0E0;
+  --color-cream-300: #FFE8D0;
+  --color-cream-400: #FFE0C0;
+  --color-cream-500: #F0D6B0;
+
+  /* ─── Secondary Colors ─── */
+  --color-lavender: #C4A1E0;
+  --color-lavender-50: #F5EEFB;
+  --color-lavender-100: #E8DCF6;
+  --color-lavender-200: #D4B8EA;
+  --color-lavender-300: #C4A1E0;
+  --color-lavender-400: #A880D0;
+  --color-lavender-500: #8C60C0;
+
+  --color-teal: #4ECDC4;
+  --color-teal-50: #E6F9F8;
+  --color-teal-100: #CDF3F1;
+  --color-teal-200: #9BE7E3;
+  --color-teal-300: #69DBD5;
+  --color-teal-400: #4ECDC4;
+  --color-teal-500: #38B0A8;
+
+  --color-coral: #FF6B6B;
+  --color-coral-50: #FFEDED;
+  --color-coral-100: #FFDBDB;
+  --color-coral-200: #FFB7B7;
+  --color-coral-300: #FF9393;
+  --color-coral-400: #FF6B6B;
+  --color-coral-500: #E85555;
+
+  --color-charcoal: #2D2D2D;
+  --color-charcoal-50: #F0F0F0;
+
+  /* ─── Extended Palette ─── */
+  --color-star-gold: #FFD700;
+  --color-moonlight: #E8E0F0;
+  --color-warm-sand: #F0E6D3;
+  --color-deep-forest: #2D5A4A;
+}
+
+/* ─── Base Styles ─── */
+@layer base {
+  html, body {
+    @apply bg-midnight text-cream antialiased;
+    font-family: 'Nunito', 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  ::selection {
+    @apply bg-amber/30 text-white;
+  }
+
+  /* Button base */
+  button, .btn {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Input base */
+  input, textarea, select {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* ─── Utility Classes ─── */
+@layer utilities {
+  /* Gradients */
+  .text-gradient {
+    @apply bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-warm {
+    @apply bg-gradient-to-r from-amber-400 via-lavender to-teal bg-clip-text text-transparent;
+  }
+
+  .bg-gradient-midnight {
+    background: linear-gradient(135deg, #1B1B3A 0%, #2A1B4E 100%);
+  }
+
+  .bg-gradient-cta {
+    @apply bg-gradient-to-r from-amber-400 to-amber-500;
+  }
+
+  .bg-gradient-cta-secondary {
+    @apply bg-gradient-to-r from-lavender to-lavender-400;
+  }
+
+  .bg-gradient-card {
+    background: linear-gradient(180deg, rgba(196, 161, 224, 0.08) 0%, transparent 100%);
+  }
+
+  /* Glow effects (using amber instead of violet) */
+  .glow {
+    box-shadow: 0 0 40px rgba(245, 166, 35, 0.2), 0 0 80px rgba(245, 166, 35, 0.08);
+  }
+
+  .glow-sm {
+    box-shadow: 0 0 20px rgba(245, 166, 35, 0.15);
+  }
+
+  .glow-lavender {
+    box-shadow: 0 0 40px rgba(196, 161, 224, 0.2), 0 0 80px rgba(196, 161, 224, 0.08);
+  }
+
+  /* Stars */
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  }
+
+  .star-small { width: 2px; height: 2px; }
+  .star-medium { width: 3px; height: 3px; }
+  .star-large { width: 4px; height: 4px; }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(245, 166, 35, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(245, 166, 35, 0.4), 0 0 60px rgba(245, 166, 35, 0.1); }
+  }
+
+  .animate-float { animation: float 4s ease-in-out infinite; }
+  .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+  .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+}

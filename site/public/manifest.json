@@ -1,0 +1,28 @@
+{
+  "name": "CorbaTales — AI Bedtime Stories",
+  "short_name": "CorbaTales",
+  "description": "Every night, a brand-new AI-generated bedtime story for your child — narrated in your voice.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B1B3A",
+  "theme_color": "#1B1B3A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
