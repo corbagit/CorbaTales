@@ -18,7 +18,7 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
 
       const session = await stripe.checkout.sessions.create({
         mode: "subscription",
-        payment_method_types: ["card"],
+        payment_method_types: ["card", "paypal"],
         line_items: [{ price: priceId, quantity: 1 }],
         success_url: `${process.env.BASE_URL || "https://4497395f80d7bf602e6505d07bcfa780.ctonew.app"}/dashboard?checkout=success`,
         cancel_url: `${process.env.BASE_URL || "https://4497395f80d7bf602e6505d07bcfa780.ctonew.app"}/pricing?checkout=canceled`,
